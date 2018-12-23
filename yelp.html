@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Nikhil Agrawal</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Yelp Review Analytics</h1>
+						
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								
+								
+								<p>Most of the recommendation systems considers restaurants who have high average rating till date. The problem with this approach is that the restaurants 
+									who are improving in recent times still have less average rating. Such restaurants are not considered in traditional recommender systems.
+									we build a system which considers performance of restaurants in particular quarter so that restaurants that are 
+									improving gets fair chance to compete. How do measure performance? We consider user reviews given for particular restaurant and 
+									perform Sentiment analysis along with LDA Topic Modelling technique to predict user ratings and use this rating for particular quarter while building recommendation 
+									system.
+								</p>
+								<h2>Methodology</h2>
+                                <ul>
+                                    <li><b>Data Preparation and Preprocessing</b></li>
+                                        <ol>
+                                            <li>This was the most important and challenging module. Around 6 Million reviews were present in the dataset for 2 lac businesses, considered 1 million reviews only for the restaurants business.</li>
+                                            <li>The reviews was present in different languages used pythons lang detect package to separate out only english reviews. Some reviews have urls and symbols such reviews were dropped.</li>
+                                            <li>Created bag of words after doing text preprocessing which involved tokenizing, removal of stop words, converting text to lower case, removing punctuation.</li>
+                                        </ol>
+                                    <li><b>Sentiment Analysis and Topic Modeling</b></li>
+                                        <ol>
+                                            <li>Used sentiment intensity analyzer to obtain positive and negative scores for each review.This scores were considered as features for training supervised ml model.</li>
+                                            <li>Performed topic modeling on all the reviews and found 10 topics. Each review belonged to one of the above topics. Each topic had probability of word distribution for 10 key words. These 10 probabilities were multiplied with positive and negative scores from sentiment analysis and each product were considered as unique feature for training supervised ML regression algorithm. </li>
+                                        </ol>
+                                    <li> <b>Predict user ratings for items</b></li>
+                                        <ol>
+                                            <li>This module is focussed on building and evaluating regression model. Build and compared performance of four different regressors Ridge Regression model, Lasso regression model, RandomForestRegressor, ExtraTreeRegressor.</li>
+                                            <li> ExtraTreeRegressor gave best results with RMSE as low as 0.9094. </li>
+                                        </ol>
+                                    <li><b>Building Recommendation System</b></li>
+                                        <ol>
+                                            <li>Used SKLearn’s surprise library which provides packages for building recommendation system with collaborative filtering.</li>
+                                            <li>Build item-based recommendation system to predict items rating</li>
+                                            <li>Also build a ranking list for restaurant owners which can work as recommendation for owners as it provides insights to owners about there performance in each quarter.</li>
+                                        </ol>
+                                    <li><b>Deployment</b></li>
+                                        <ol>
+                                            <li>Created rest api using flask and exposed recommendation system as a service which was consumed from front-end Web Application.</li>
+                                        </ol>
+                                </ul>
+
+								<h2>Challenges</h2>
+                                    <ol>
+                                        <li>Data Preprocessing, handling imbalanced data the ratio of 5,4,3,2,1 star rating was different had many 5,4 star rating but few 1,2 start rating reviews.</li>
+                                        <li>Sentiment analyzer fails to capture sarcastic reviews.</li>
+                                    </ol>
+                                <h2>Key Learining</h2>
+                                <p>Sentiment Analysis, LDA Topic Modeling, Unsupervised learning technique, Recommendation system.</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<h2>Aliquam sed mauris</h2>
+							<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">Learn More</a></li>
+							</ul>
+						</section>
+						<section>
+							<h2>Etiam feugiat</h2>
+							<dl class="alt">
+								<dt>Address</dt>
+								<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
+								<dt>Phone</dt>
+								<dd>(000) 000-0000 x 0000</dd>
+								<dt>Email</dt>
+								<dd><a href="#">information@untitled.tld</a></dd>
+							</dl>
+							<ul class="icons">
+								<li><a href="#" class="icon fa-twitter alt"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon fa-instagram alt"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon fa-dribbble alt"><span class="label">Dribbble</span></a></li>
+							</ul>
+						</section>
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

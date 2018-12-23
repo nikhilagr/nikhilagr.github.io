@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Nikhil Agrawal</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>User Authentication Using Keystroke Dynamics</h1>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								
+								<h2>Problem we are trying to solve</h2>
+								<p>Write Short Description
+								</p>
+								<h2>Methodology</h2>
+                                <ul>
+                                    <li><b>Data collection and formation of typing pattern</b></li>
+                                        <ol>
+                                            <li>Created standalone desktop application using java to capture typing biometrics. Typing pattern consists of hold time, keydown keydown time , keyup keydown time.Hold time is time between press and release of the key, Keyup keydown time is time between pressing of consecutive keys and Keyup-Keydown time is time between release of one key and press of next key. Using these three parameters a pattern is formed which is unique for each user. </li>
+                                            
+                                            
+                                        </ol>
+                                    <li><b>Selection of ML Algorithm and training the model</b></li>
+                                        <ol>
+                                            <li>As the problem is classification of user whether the user is genuine or imposter, supervised learning algorithms like logistic regression, support vector machine and K-nearest-neighbour were used.Used sklearn libraries for training the models.</li>
+                                        </ol>
+                                    <li> <b>Test & evaluate the ML Model</b></li>
+                                        <ol>
+                                            <li>Train Test Split, where the dataset is divided into two different datasets, training set and testing set.Train the data with training set and test the data on testing set and evaluate the accuracy of the model</li>
+                                            <li>Cross Validation: Split dataset into K equal partitions(folds), Use partition 1 as testing set and remaining K-1 partitions as training set and calculate accuracy. Repeat the process K number of times and use average of all the accuracies to evaluate model performance.</li>
+                                        </ol>
+                                    <li><b>Deployment</b></li>
+                                        <ol>
+                                            <li>The logistic regression model was deployed as a service through IBM Watson.</li>
+                                        </ol>
+                                   
+                                </ul>
+
+								<h2>Challenges</h2>
+                                    <ol>
+                                        <li>Dealing with imbalanced data.</li>
+                                        <li>Cold start problem.</li>
+                                    </ol>
+                                <h2>Key Learining</h2>
+                                <p>Various supervised learning algorithms, Deploying through IBM Watson.</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<h2>Aliquam sed mauris</h2>
+							<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">Learn More</a></li>
+							</ul>
+						</section>
+						<section>
+							<h2>Etiam feugiat</h2>
+							<dl class="alt">
+								<dt>Address</dt>
+								<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
+								<dt>Phone</dt>
+								<dd>(000) 000-0000 x 0000</dd>
+								<dt>Email</dt>
+								<dd><a href="#">information@untitled.tld</a></dd>
+							</dl>
+							<ul class="icons">
+								<li><a href="#" class="icon fa-twitter alt"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon fa-instagram alt"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon fa-dribbble alt"><span class="label">Dribbble</span></a></li>
+							</ul>
+						</section>
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
