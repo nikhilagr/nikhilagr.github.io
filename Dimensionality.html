@@ -15,7 +15,8 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>User Authentication Using Keystroke Dynamics</h1>
+						<h1>Dimensionality Reduction For
+                            Image Classification</h1>
 					</header>
 
 				<!-- Main -->
@@ -29,35 +30,33 @@
 								</p>
 								<h2>Methodology</h2>
                                 <ul>
-                                    <li><b>Data collection and formation of typing pattern</b></li>
+                                    <li><b>Data Preprocessing and Dimensionality Reduction</b></li>
                                         <ol>
-                                            <li>Created standalone desktop application using java to capture typing biometrics. Typing pattern consists of hold time, keydown keydown time , keyup keydown time.Hold time is time between press and release of the key, Keyup keydown time is time between pressing of consecutive keys and Keyup-Keydown time is time between release of one key and press of next key. Using these three parameters a pattern is formed which is unique for each user. </li>
+                                            <li>The data was not in image format but it was represented as 887 dimensional vector. It means each image had 887 features. But as all features will not be good to predict objects in the images applied various dimensionality reduction and feature selection algorithms to select best features for classification.</li>
+                                            <li>The first step was to standardize(Z-Score normalization) the the vectors and apply various dimensionality reduction algorithms such as Principal Component Analysis(PCA)  and Singular vector decomposition(SVD).</li>
+                                            <li>Also, tried various feature selection techniques such as Recursive Feature Elimination, RFE with Cross validation to choose optimal features for classification. </li>
                                             
                                             
                                         </ol>
-                                    <li><b>Selection of ML Algorithm and training the model</b></li>
+                                    <li><b>Training, testing, and evaluating ML Model.</b></li>
                                         <ol>
-                                            <li>As the problem is classification of user whether the user is genuine or imposter, supervised learning algorithms like logistic regression, support vector machine and K-nearest-neighbour were used.Used sklearn libraries for training the models.</li>
+                                            <li>Trained 8 different ML Models. Best results were obtained by models which use ensemble methods.Choose voting classifier which considered results from 3 different Algorithms (MLP, RandomForest, ExtraTreeClassfier) and classified image with majority voting mechanism.</li>
+                                            <li>Got F1 Score of 0.85</li>
                                         </ol>
-                                    <li> <b>Test & evaluate the ML Model</b></li>
+                                    <li> <b>Comparing Model Performance and latency. </b></li>
                                         <ol>
-                                            <li>Train Test Split, where the dataset is divided into two different datasets, training set and testing set.Train the data with training set and test the data on testing set and evaluate the accuracy of the model</li>
-                                            <li>Cross Validation: Split dataset into K equal partitions(folds), Use partition 1 as testing set and remaining K-1 partitions as training set and calculate accuracy. Repeat the process K number of times and use average of all the accuracies to evaluate model performance.</li>
+                                            <li>Model evaluation measures such as F1 score, accuracy, train time, time to predict  were compared before applying dimensionality reduction and after applying Dimensionality reduction.</li>
+                                            <li>Results: Got same f1 score with selecting only 29 features from 887 features. Thus memory footprint reduced by 90% and train time was reduced by 60%</li>
                                         </ol>
-                                    <li><b>Deployment</b></li>
-                                        <ol>
-                                            <li>The logistic regression model was deployed as a service through IBM Watson.</li>
-                                        </ol>
-                                   
                                 </ul>
 
 								<h2>Challenges</h2>
                                     <ol>
-                                        <li>Dealing with imbalanced data.</li>
-                                        <li>Cold start problem.</li>
+                                        <li>Choosing number of features after reduction such that the model performance is not hampered.</li>
+                                        <li>Fine tuning model parameters such number of estimators, maximum number of features for Random Forest and ExtraTreeClassifier.</li>
                                     </ol>
                                 <h2>Key Learining</h2>
-                                <p>Various supervised learning algorithms, Deploying through IBM Watson. </p>
+                                <p>Supervised learning algorithms, Ensemble Methods, Neural Network (Multi layer perceptron model), Dimensionality Algorithms such as PCA and SVD.</p>
 							</section>
 
 					</div>

@@ -15,7 +15,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>User Authentication Using Keystroke Dynamics</h1>
+						<h1>Predictive Model for Medical Text classification</h1>
 					</header>
 
 				<!-- Main -->
@@ -29,35 +29,31 @@
 								</p>
 								<h2>Methodology</h2>
                                 <ul>
-                                    <li><b>Data collection and formation of typing pattern</b></li>
+                                    <li><b>Text preprocessing</b></li>
                                         <ol>
-                                            <li>Created standalone desktop application using java to capture typing biometrics. Typing pattern consists of hold time, keydown keydown time , keyup keydown time.Hold time is time between press and release of the key, Keyup keydown time is time between pressing of consecutive keys and Keyup-Keydown time is time between release of one key and press of next key. Using these three parameters a pattern is formed which is unique for each user. </li>
+                                            <li>Text preprocessing include process of tokenizing, Stemming, Lemmatizing using Natural Language Processing
+                                                Toolkit. </li>
+                                            <li>Remove stopwords , punctuations.</li>
+                                            <li>Implemented  TF-IDF from scratch in python to assign weights to words.</li>
+                                            <li>Represent text in sparse vectors.</li>
                                             
                                             
                                         </ol>
-                                    <li><b>Selection of ML Algorithm and training the model</b></li>
+                                    <li><b>Model Building:</b></li>
                                         <ol>
-                                            <li>As the problem is classification of user whether the user is genuine or imposter, supervised learning algorithms like logistic regression, support vector machine and K-nearest-neighbour were used.Used sklearn libraries for training the models.</li>
+                                            <li>Build KNN Model from scratch and compared performance for different similarity measures such as cosine similarity, jaccard  coefficient, euclidean distance.</li>
+                                            <li>Results: Got F1 score of 78%</li>
                                         </ol>
-                                    <li> <b>Test & evaluate the ML Model</b></li>
-                                        <ol>
-                                            <li>Train Test Split, where the dataset is divided into two different datasets, training set and testing set.Train the data with training set and test the data on testing set and evaluate the accuracy of the model</li>
-                                            <li>Cross Validation: Split dataset into K equal partitions(folds), Use partition 1 as testing set and remaining K-1 partitions as training set and calculate accuracy. Repeat the process K number of times and use average of all the accuracies to evaluate model performance.</li>
-                                        </ol>
-                                    <li><b>Deployment</b></li>
-                                        <ol>
-                                            <li>The logistic regression model was deployed as a service through IBM Watson.</li>
-                                        </ol>
-                                   
+                        
                                 </ul>
 
 								<h2>Challenges</h2>
                                     <ol>
-                                        <li>Dealing with imbalanced data.</li>
-                                        <li>Cold start problem.</li>
+                                        <li>Dealt with highly imbalanced data, used various sampling techniques to deal with it.</li>
+                                        <li>Selection of meta-parameter, determining value of K which prevents data from overfitting and underfitting of data.</li>
                                     </ol>
                                 <h2>Key Learining</h2>
-                                <p>Various supervised learning algorithms, Deploying through IBM Watson. </p>
+                                <p>Text Mining, NLP, Building KNN from Scratch.</p>
 							</section>
 
 					</div>
